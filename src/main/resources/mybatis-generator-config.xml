@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 配置Run As Maven build : Goals 参数 : mapper-generator:generate -D mapper.generator.overwrite=true -->
+<!-- 配置 tableName,使用 Run As Maven build 生成 dao model 层 -->
+<generatorConfiguration>
+    <!--数据库驱动-->
+    <!--<classPathEntry location="mysql-connector-java-8.0.11.jar"/>-->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!--序列化插件 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+        </plugin>
+<!--        &lt;!&ndash;批量插入插件&ndash;&gt;-->
+<!--        <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin"/>-->
+        <!--选择字段插件-->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>
+        <!--分页查询插件-->
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+        <!--打开/关闭注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <!--数据库连接信息 -->
+        <jdbcConnection
+                driverClass="com.mysql.cj.jdbc.Driver"
+                connectionURL="jdbc:mysql://120.77.83.229:3306/ssm?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=CTT&amp;useSSL=false"
+                userId="root"
+                password="1998aZXCVBNM.">
+        </jdbcConnection>
+        <!--指定生成的类型为java类型，避免数据库中number等类型字段 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--生成的model 包路径 -->
+        <javaModelGenerator targetPackage="org.com.model.pojo"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成xml mapper文件 路径 -->
+        <sqlMapGenerator targetPackage="org.com.model.mapper"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!-- 生成的Dao接口 的包路径 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.com.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <table schema="ssm" tableName="wx_user"
+               domainObjectName="WxUser" delimitIdentifiers="true" delimitAllColumns="true">
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
+            <generatedKey column="proxy_id" sqlStatement="MySQL" identity="true"/>
+        </table>
+<!--        <table schema="ssm" tableName="forum_imgurls"-->
+<!--               domainObjectName="ForumImgUrl" delimitIdentifiers="true" delimitAllColumns="true">-->
+<!--            <property name="ignoreQualifiersAtRuntime" value="true"/>-->
+<!--            <generatedKey column="proxy_id" sqlStatement="MySQL" identity="true"/>-->
+<!--        </table>-->
+    </context>
+</generatorConfiguration>

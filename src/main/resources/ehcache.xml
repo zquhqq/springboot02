@@ -1,0 +1,25 @@
+<ehcache name="mycache">
+    <!-- 如果不使用磁盘存储，只需要将diskStore注释即可 -->
+    <diskStore path="D:\idea\cache"/>
+    <defaultCache
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        maxElementsOnDisk="10000000"
+        diskExpiryThreadIntervalSeconds="120"
+        memoryStoreEvictionPolicy="LRU">
+    </defaultCache>
+
+    <cache
+        name="users"
+        eternal="false"
+        maxElementsInMemory="100"
+        overflowToDisk="false"
+        diskPersistent="false"
+        timeToIdleSeconds="0"
+        timeToLiveSeconds="300"
+        memoryStoreEvictionPolicy="LRU">
+    </cache>
+
+</ehcache>

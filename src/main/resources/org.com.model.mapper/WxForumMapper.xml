@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.com.mapper.WxForumMapper">
+  <resultMap id="BaseResultMap" type="org.com.model.pojo.WxForum">
+    <result column="forum_Id" jdbcType="VARCHAR" property="forumId" />
+    <result column="userAvatarUrl" jdbcType="VARCHAR" property="useravatarurl" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="text" jdbcType="VARCHAR" property="text" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="openId" jdbcType="VARCHAR" property="openid" />
+    <result column="enjoyNum" jdbcType="INTEGER" property="enjoynum" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    `forum_Id`, `userAvatarUrl`, `nickname`, `text`, `create_time`, `openId`, `enjoyNum`
+  </sql>
+  <select id="selectByExample" parameterType="org.com.model.pojo.WxForumExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from `wx_forum`
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="org.com.model.pojo.WxForumExample">
+    delete from `wx_forum`
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.com.model.pojo.WxForum">
+    insert into `wx_forum` (`forum_Id`, `userAvatarUrl`, `nickname`, 
+      `text`, `create_time`, `openId`, 
+      `enjoyNum`)
+    values (#{forumId,jdbcType=VARCHAR}, #{useravatarurl,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{text,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{openid,jdbcType=VARCHAR}, 
+      #{enjoynum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.com.model.pojo.WxForum">
+    insert into `wx_forum`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="forumId != null">
+        `forum_Id`,
+      </if>
+      <if test="useravatarurl != null">
+        `userAvatarUrl`,
+      </if>
+      <if test="nickname != null">
+        `nickname`,
+      </if>
+      <if test="text != null">
+        `text`,
+      </if>
+      <if test="createTime != null">
+        `create_time`,
+      </if>
+      <if test="openid != null">
+        `openId`,
+      </if>
+      <if test="enjoynum != null">
+        `enjoyNum`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="forumId != null">
+        #{forumId,jdbcType=VARCHAR},
+      </if>
+      <if test="useravatarurl != null">
+        #{useravatarurl,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="text != null">
+        #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="enjoynum != null">
+        #{enjoynum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.com.model.pojo.WxForumExample" resultType="java.lang.Long">
+    select count(*) from `wx_forum`
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update `wx_forum`
+    <set>
+      <if test="record.forumId != null">
+        `forum_Id` = #{record.forumId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.useravatarurl != null">
+        `userAvatarUrl` = #{record.useravatarurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nickname != null">
+        `nickname` = #{record.nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.text != null">
+        `text` = #{record.text,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        `create_time` = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.openid != null">
+        `openId` = #{record.openid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enjoynum != null">
+        `enjoyNum` = #{record.enjoynum,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update `wx_forum`
+    set `forum_Id` = #{record.forumId,jdbcType=VARCHAR},
+      `userAvatarUrl` = #{record.useravatarurl,jdbcType=VARCHAR},
+      `nickname` = #{record.nickname,jdbcType=VARCHAR},
+      `text` = #{record.text,jdbcType=VARCHAR},
+      `create_time` = #{record.createTime,jdbcType=TIMESTAMP},
+      `openId` = #{record.openid,jdbcType=VARCHAR},
+      `enjoyNum` = #{record.enjoynum,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <select id="selectByExampleWithRowbounds" parameterType="org.com.model.pojo.WxForumExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from `wx_forum`
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

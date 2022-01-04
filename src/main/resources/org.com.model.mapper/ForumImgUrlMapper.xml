@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.com.mapper.ForumImgUrlMapper">
+  <resultMap id="BaseResultMap" type="org.com.model.pojo.ForumImgUrl">
+    <result column="forum_imgId" jdbcType="VARCHAR" property="forumImgid" />
+    <result column="imgUrl1" jdbcType="VARCHAR" property="imgurl1" />
+    <result column="imgUrl2" jdbcType="VARCHAR" property="imgurl2" />
+    <result column="imgUrl3" jdbcType="VARCHAR" property="imgurl3" />
+    <result column="forumNum" jdbcType="VARCHAR" property="forumnum" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    `forum_imgId`, `imgUrl1`, `imgUrl2`, `imgUrl3`, `forumNum`
+  </sql>
+  <select id="selectByExample" parameterType="org.com.model.pojo.ForumImgUrlExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from `forum_imgurls`
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="org.com.model.pojo.ForumImgUrlExample">
+    delete from `forum_imgurls`
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.com.model.pojo.ForumImgUrl">
+    insert into `forum_imgurls` (`forum_imgId`, `imgUrl1`, `imgUrl2`, 
+      `imgUrl3`, `forumNum`)
+    values (#{forumImgid,jdbcType=VARCHAR}, #{imgurl1,jdbcType=VARCHAR}, #{imgurl2,jdbcType=VARCHAR}, 
+      #{imgurl3,jdbcType=VARCHAR}, #{forumnum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.com.model.pojo.ForumImgUrl">
+    insert into `forum_imgurls`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="forumImgid != null">
+        `forum_imgId`,
+      </if>
+      <if test="imgurl1 != null">
+        `imgUrl1`,
+      </if>
+      <if test="imgurl2 != null">
+        `imgUrl2`,
+      </if>
+      <if test="imgurl3 != null">
+        `imgUrl3`,
+      </if>
+      <if test="forumnum != null">
+        `forumNum`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="forumImgid != null">
+        #{forumImgid,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl1 != null">
+        #{imgurl1,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl2 != null">
+        #{imgurl2,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl3 != null">
+        #{imgurl3,jdbcType=VARCHAR},
+      </if>
+      <if test="forumnum != null">
+        #{forumnum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.com.model.pojo.ForumImgUrlExample" resultType="java.lang.Long">
+    select count(*) from `forum_imgurls`
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update `forum_imgurls`
+    <set>
+      <if test="record.forumImgid != null">
+        `forum_imgId` = #{record.forumImgid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imgurl1 != null">
+        `imgUrl1` = #{record.imgurl1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imgurl2 != null">
+        `imgUrl2` = #{record.imgurl2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imgurl3 != null">
+        `imgUrl3` = #{record.imgurl3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.forumnum != null">
+        `forumNum` = #{record.forumnum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update `forum_imgurls`
+    set `forum_imgId` = #{record.forumImgid,jdbcType=VARCHAR},
+      `imgUrl1` = #{record.imgurl1,jdbcType=VARCHAR},
+      `imgUrl2` = #{record.imgurl2,jdbcType=VARCHAR},
+      `imgUrl3` = #{record.imgurl3,jdbcType=VARCHAR},
+      `forumNum` = #{record.forumnum,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <select id="selectByExampleWithRowbounds" parameterType="org.com.model.pojo.ForumImgUrlExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from `forum_imgurls`
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

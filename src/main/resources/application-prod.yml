@@ -1,0 +1,7 @@
+# 正式环境
+server:
+  servlet:
+    # 项目路径配置
+    context-path: /springboot03
+    # 服务器端口配置
+  port: 8989

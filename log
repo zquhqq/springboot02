@@ -1,0 +1,42 @@
+2021-09-17 22:01:14.946  INFO 1672 --- [restartedMain] org.com.StarterApplication01             : Starting StarterApplication01 using Java 1.8.0_201 on LAPTOP-4IGCADK5 with PID 1672 (D:\idea\com.shstxt\com.shstxt\com.shstxt\springboot02\target\classes started by ASUS in D:\idea\com.shstxt\com.shstxt\com.shstxt\springboot02)
+2021-09-17 22:01:14.946  INFO 1672 --- [restartedMain] org.com.StarterApplication01             : The following profiles are active: prod
+2021-09-17 22:01:15.263 ERROR 1672 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.2.12] of the Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-09-17 22:01:15.351  INFO 1672 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8989 (http)
+2021-09-17 22:01:15.352  INFO 1672 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-17 22:01:15.353  INFO 1672 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-09-17 22:01:15.375  INFO 1672 --- [restartedMain] o.a.c.c.C.[.[localhost].[/springboot03]  : Initializing Spring embedded WebApplicationContext
+2021-09-17 22:01:15.375  INFO 1672 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 424 ms
+2021-09-17 22:01:15.560  INFO 1672 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-09-17 22:01:15.595  INFO 1672 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-09-17 22:01:15.604  INFO 1672 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-09-17 22:01:15.653  WARN 1672 --- [restartedMain] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2021-09-17 22:01:15.671  INFO 1672 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2021-09-17 22:01:15.672  INFO 1672 --- [restartedMain] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2021-09-17 22:01:15.672  INFO 1672 --- [restartedMain] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2021-09-17 22:01:15.672  INFO 1672 --- [restartedMain] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2021-09-17 22:01:15.672  INFO 1672 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2021-09-17 22:01:15.672  INFO 1672 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2021-09-17 22:01:15.672  INFO 1672 --- [restartedMain] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2021-09-17 22:01:15.672  INFO 1672 --- [restartedMain] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@47959538
+2021-09-17 22:01:15.709  INFO 1672 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8989 (http) with context path '/springboot03'
+2021-09-17 22:01:15.710  INFO 1672 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-09-17 22:01:15.710  INFO 1672 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-09-17 22:01:15.718  INFO 1672 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-09-17 22:01:15.751  INFO 1672 --- [restartedMain] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2021-09-17 22:01:15.751  INFO 1672 --- [restartedMain] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2021-09-17 22:01:15.754  INFO 1672 --- [restartedMain] org.com.StarterApplication01             : Started StarterApplication01 in 0.858 seconds (JVM running for 7939.445)
+2021-09-17 22:01:15.756  INFO 1672 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-09-17 22:01:55.991  INFO 1672 --- [Thread-43] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-09-17 22:01:56.490  INFO 1672 --- [Thread-43] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2021-09-17 22:01:56.491  INFO 1672 --- [Thread-43] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2021-09-17 22:01:56.491  INFO 1672 --- [Thread-43] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2021-09-17 22:01:56.491  INFO 1672 --- [Thread-43] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2021-09-17 22:01:56.492  INFO 1672 --- [Thread-43] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-09-17 22:01:56.493  INFO 1672 --- [Thread-43] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
